@@ -1,6 +1,6 @@
 [project]
 name = "cv-generator"
-version = "0.1.0"
+version = "0.1.1"
 description = "Generate Harvard-style CV PDFs from a YAML single source."
 authors = [
     {name = "Daniel Muñoz", email = "demunoz2@uc.cl"}
