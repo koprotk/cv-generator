@@ -4,7 +4,7 @@ Generate a Harvard-style CV as LaTeX/PDF from a single YAML file.
 
 This repository contains only the generator. The CV content (personal data,
 bibliography, photo, confidential documents) belongs in a separate private
-repository. See the [[https://github.com/koprotk/myCV][myCV]] content repository for an example layout.
+repository.
 
 * Requirements
 
@@ -122,5 +122,5 @@ code is maintained in this repository.
 
 * Related repositories
 
-+ [[https://github.com/koprotk/myCV][myCV]] — private CV content (data, bibliography, photo)
++ ~myCV~ — private CV content (data, bibliography, photo)
 + [[https://github.com/koprotk/org-blogger][org-blogger]] — blog publishing tool following the same split
