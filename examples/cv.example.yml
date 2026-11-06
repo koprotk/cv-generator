@@ -1,87 +1,192 @@
-# Example CV data for trying out cv-generator.
-# Copy this file to your private content repository and replace the values.
+# Example CV data for cv-generator.
+#
+# This file is intentionally fictitious. It demonstrates every section the
+# generator understands:
+#   - _es / _en suffixes for translatable fields
+#   - tags for role-specific CV variants
+#   - confidential documents that are dropped with --public
+#   - a bibliography referenced from config.bibpath
+#
+# Copy it to your own private content repository and replace the values.
+
 personal:
   name: "Ada Example"
   email: "ada@example.com"
-  phone: "+00 000 0000"
-  github: "ada"
-  linkedin: "ada"
+  phone: "+00 555 0100"
+  github: "ada-example"
+  linkedin: "ada-example"
   orcid: "0000-0002-1825-0097"
-  summary_es: "Ejemplo de perfil profesional en español."
-  summary_en: "Example professional profile in English."
+  summary_es: "Ingeniera de calidad con más de ocho años de experiencia en automatización de pruebas web y de API. Diseña estrategias de prueba en CI/CD, lidera migraciones de suites manuales y trabaja con equipos de producto para acortar los ciclos de entrega."
+  summary_en: "Quality engineer with 8+ years automating web and API tests. Designs CI/CD test strategies, leads migrations from manual suites, and works with product teams to shorten delivery cycles."
 
 education:
-  - id: e1
-    title: "MSc in Examples"
-    title_en: "MSc in Examples (EN)"
+  - id: edu-1
+    title: "Magíster en Ciencias de la Computación"
+    title_en: "MSc in Computer Science"
     institution: "Example University"
-    location: "Remote"
-    location_en: "Remote"
-    start: 2020
-    end: 2022
-    tags: [academic]
+    location: "Santiago, Chile"
+    location_en: "Santiago, Chile"
+    start: 2018
+    end: 2020
+    note: "Tesis sobre generación automática de casos de prueba."
+    note_en: "Thesis on automatic test case generation."
+    tags: [academic, data]
 
-  - id: e2
-    title: "QA Automation Program"
-    institution: "Example Academy"
+  - id: edu-2
+    title: "Ingeniería Civil en Informática"
+    title_en: "BSc in Computer Engineering"
+    institution: "Example University"
+    location: "Valparaíso, Chile"
+    location_en: "Valparaíso, Chile"
+    start: 2012
+    end: 2017
+    tags: [academic, it]
+
+  - id: edu-3
+    title: "Diplomado en Gestión de Proyectos Ágiles"
+    title_en: "Diploma in Agile Project Management"
+    institution: "Example Business School"
     location: "Online"
+    location_en: "Online"
     start: 2021
-    end: 2022
-    tags: [qa]
+    end: 2021
+    tags: [management]
 
 experience:
-  - id: x1
-    role: "Quality Engineer"
-    org: "Example Corp"
-    location: "Remote"
+  - id: exp-1
+    role: "Ingeniera de Calidad (SDET)"
+    role_en: "Software Quality Engineer (SDET)"
+    org: "Example Fintech"
+    location: "Remoto"
+    location_en: "Remote"
     start: 2022
     end:
-    desc: "Automated front-end and API tests."
-    desc_en: "Automated front-end and API tests."
-    tags: [qa, automation]
+    desc: "Automatización de pruebas de front-end y API para una plataforma de pagos. Diseño de suites en Playwright y pytest, integración en Jenkins y seguimiento de métricas en TestRail."
+    desc_en: "Front-end and API test automation for a payments platform. Designed Playwright and pytest suites, integrated them in Jenkins, and tracked quality metrics in TestRail."
+    tags: [qa, automation, it]
 
-  - id: x2
-    role: "Lecturer"
-    role_en: "Lecturer (EN)"
-    org: "Example University"
-    location: "Santiago"
-    start: 2023
-    end:
-    desc: "Taught introductory programming."
-    desc_en: "Taught introductory programming."
-    tags: [academic, teaching]
+  - id: exp-2
+    role: "Analista de Automatización QA"
+    role_en: "QA Automation Analyst"
+    org: "Acme Analytics"
+    location: "Santiago, Chile"
+    location_en: "Santiago, Chile"
+    start: 2020
+    end: 2022
+    desc: "Migración de pruebas manuales a Selenium y Cucumber para sistemas de reportería. Pruebas de integración de API con Postman y SQL."
+    desc_en: "Migrated manual tests to Selenium and Cucumber for reporting systems. API integration testing with Postman and SQL."
+    tags: [qa, automation, data]
+
+  - id: exp-3
+    role: "Instructora de Automatización con Python"
+    role_en: "Test Automation Instructor (Python)"
+    org: "Example Academy"
+    location: "Online"
+    location_en: "Online"
+    start: 2021
+    end: 2023
+    desc: "Diseño instruccional y docencia del curso de automatización con Python. Material práctico para equipos que adoptan pruebas shift-left."
+    desc_en: "Instructional design and teaching for the Python automation course. Hands-on material for teams adopting shift-left testing."
+    tags: [teaching, qa, it]
+
+  - id: exp-4
+    role: "Desarrolladora Backend"
+    role_en: "Backend Developer"
+    org: "Globex Software"
+    location: "Santiago, Chile"
+    location_en: "Santiago, Chile"
+    start: 2017
+    end: 2020
+    desc: "Desarrollo de servicios REST en Python y Java. Pruebas unitarias, revisión de código y soporte a producción."
+    desc_en: "Built REST services in Python and Java. Unit testing, code review, and production support."
+    tags: [it, data]
 
 courses:
-  - title: "ISTQB Foundation"
-    org: "Example Institute"
+  - title: "Automatización de Pruebas con Python"
+    title_en: "Test Automation with Python"
+    org: "Example Academy"
+    org_en: "Example Academy"
+    year: 2023
+    tags: [qa, automation]
+
+  - title: "ISTQB Foundation Level"
+    title_en: "ISTQB Foundation Level"
+    org: "Example Testing Board"
+    org_en: "Example Testing Board"
     year: 2021
     tags: [qa]
 
+  - title: "Fundamentos de DevOps y CI/CD"
+    title_en: "DevOps and CI/CD Fundamentals"
+    org: "Example Online"
+    org_en: "Example Online"
+    year: 2022
+    tags: [it, automation]
+
 languages:
-  - name: "Spanish"
+  - name: "Español"
     name_en: "Spanish"
-    level: "Native"
+    level: "Nativo"
     level_en: "Native"
+    note: "Lengua materna."
+    note_en: "Native language."
+
+  - name: "Inglés"
+    name_en: "English"
+    level: "Avanzado (C1)"
+    level_en: "Advanced (C1)"
+    note: "Trabajo diario con equipos internacionales."
+    note_en: "Daily work with international teams."
 
 skills:
-  - category: "Programming"
-    category_en: "Programming"
-    items: [Python, Bash, SQL]
+  - category: "Lenguajes"
+    category_en: "Languages"
+    items: [Python, Java, SQL, Bash]
+    items_en: [Python, Java, SQL, Bash]
+    tags: [it, qa]
+
+  - category: "Automatización"
+    category_en: "Test Automation"
+    items: [Playwright, Selenium, Cypress, pytest, Cucumber]
+    items_en: [Playwright, Selenium, Cypress, pytest, Cucumber]
+    tags: [qa, automation]
+
+  - category: "CI/CD y herramientas"
+    category_en: "CI/CD and Tooling"
+    items: [Jenkins, Git, Docker, Jira, TestRail, Postman]
+    items_en: [Jenkins, Git, Docker, Jira, TestRail, Postman]
     tags: [qa, it]
+
+  - category: "Datos"
+    category_en: "Data"
+    items: [Pandas, SQL, Power BI]
+    items_en: [Pandas, SQL, Power BI]
+    tags: [data]
 
 references:
   - name: "Grace Example"
-    relation: "Engineering Manager"
-    relation_en: "Engineering Manager"
+    relation: "Engineering Manager, Example Fintech (Jefatura 2022–presente)"
+    relation_en: "Engineering Manager, Example Fintech (Supervisor 2022–present)"
     email: "grace@example.com"
+
+  - name: "Alan Example"
+    relation: "Profesor, Example University (Jefatura académica 2018–2020)"
+    relation_en: "Professor, Example University (Academic Supervisor 2018–2020)"
+    email: "alan@example.com"
 
 publications:
   - bibfile: "examples/refs.bib"
 
 documents:
-  - id: doc1
-    title: "Confidential example"
-    url: "https://example.com/private"
+  - id: doc-1
+    title: "Certificado de título (ejemplo público)"
+    url: "https://example.com/public-certificate"
+    confidential: false
+    tags: [academic]
+
+  - id: doc-2
+    title: "Evaluación de desempeño confidencial (ejemplo)"
+    url: "https://example.com/private-review"
     confidential: true
     tags: [academic, confidential]
 

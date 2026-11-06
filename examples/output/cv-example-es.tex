@@ -1,0 +1,71 @@
+% Jinja2 template for the Harvard-style CV
+\documentclass[a4paper]{article}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\textheight=5in
+\pagestyle{empty}
+\raggedright
+\usepackage[left=0.4in,right=0.4in,bottom=0.3in,top=0.5in]{geometry}
+\usepackage{etoolbox,refcount}
+\usepackage{multicol}
+\usepackage[backend=biber]{biblatex}
+\usepackage{fontawesome5}
+\addbibresource{../refs.bib}
+
+\usepackage{harvardresumestyle}
+
+\begin{document}
+\contactInfo{Ada Example}{ada@example.com}{+00 555 0100}{ada-example}{ada-example}{2-1825-0097}
+
+\header{Perfil}
+Ingeniera de calidad con más de ocho años de experiencia en automatización de pruebas web y de API. Diseña estrategias de prueba en CI/CD, lidera migraciones de suites manuales y trabaja con equipos de producto para acortar los ciclos de entrega.
+
+\vspace{6pt}
+\header{Educación}
+\educationItem{Example University}{Santiago, Chile}{Magíster en Ciencias de la Computación}{2018}{2020}
+\educationItem{Example University}{Valparaíso, Chile}{Ingeniería Civil en Informática}{2012}{2017}
+\educationItem{Example Business School}{Online}{Diplomado en Gestión de Proyectos Ágiles}{2021}{2021}
+
+\vspace{6pt}
+\header{Experiencia}
+\jobItem{Example Fintech}{Remoto}{2022}{}{Ingeniera de Calidad (SDET)}{Automatización de pruebas de front-end y API para una plataforma de pagos. Diseño de suites en Playwright y pytest, integración en Jenkins y seguimiento de métricas en TestRail.}
+\jobItem{Acme Analytics}{Santiago, Chile}{2020}{2022}{Analista de Automatización QA}{Migración de pruebas manuales a Selenium y Cucumber para sistemas de reportería. Pruebas de integración de API con Postman y SQL.}
+\jobItem{Example Academy}{Online}{2021}{2023}{Instructora de Automatización con Python}{Diseño instruccional y docencia del curso de automatización con Python. Material práctico para equipos que adoptan pruebas shift-left.}
+\jobItem{Globex Software}{Santiago, Chile}{2017}{2020}{Desarrolladora Backend}{Desarrollo de servicios REST en Python y Java. Pruebas unitarias, revisión de código y soporte a producción.}
+
+\vspace{6pt}
+\header{Certificaciones}
+\courseItem{Automatización de Pruebas con Python}{Example Academy}{2023}
+\courseItem{ISTQB Foundation Level}{Example Testing Board}{2021}
+\courseItem{Fundamentos de DevOps y CI/CD}{Example Online}{2022}
+
+\vspace{6pt}
+\header{Idiomas}
+Español $\cdot$ \textit{Nativo} \
+Inglés $\cdot$ \textit{Avanzado (C1)} \
+
+\vspace{6pt}
+\header{Habilidades}
+\begin{tabular}{ l l }
+    Lenguajes:       & Python, Java, SQL, Bash \\
+    Automatización:       & Playwright, Selenium, Cypress, pytest, Cucumber \\
+    CI/CD y herramientas:       & Jenkins, Git, Docker, Jira, TestRail, Postman \\
+    Datos:       & Pandas, SQL, Power BI \\
+\end{tabular}
+
+\vspace{6pt}
+\header{Referencias}
+\referenceItem{Grace Example}{Engineering Manager, Example Fintech (Jefatura 2022–presente)}{Engineering Manager, Example Fintech (Jefatura 2022–presente)}{grace@example.com}
+\referenceItem{Alan Example}{Profesor, Example University (Jefatura académica 2018–2020)}{Profesor, Example University (Jefatura académica 2018–2020)}{alan@example.com}
+
+\vspace{6pt}
+\header{Publicaciones}
+\nocite{*}
+\printbibliography[heading=none]
+
+\end{document}

@@ -1,0 +1,71 @@
+% Jinja2 template for the Harvard-style CV
+\documentclass[a4paper]{article}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\textheight=5in
+\pagestyle{empty}
+\raggedright
+\usepackage[left=0.4in,right=0.4in,bottom=0.3in,top=0.5in]{geometry}
+\usepackage{etoolbox,refcount}
+\usepackage{multicol}
+\usepackage[backend=biber]{biblatex}
+\usepackage{fontawesome5}
+\addbibresource{../refs.bib}
+
+\usepackage{harvardresumestyle}
+
+\begin{document}
+\contactInfo{Ada Example}{ada@example.com}{+00 555 0100}{ada-example}{ada-example}{2-1825-0097}
+
+\header{Profile}
+Quality engineer with 8+ years automating web and API tests. Designs CI/CD test strategies, leads migrations from manual suites, and works with product teams to shorten delivery cycles.
+
+\vspace{6pt}
+\header{Education}
+\educationItem{Example University}{Santiago, Chile}{MSc in Computer Science}{2018}{2020}
+\educationItem{Example University}{Valparaíso, Chile}{BSc in Computer Engineering}{2012}{2017}
+\educationItem{Example Business School}{Online}{Diploma in Agile Project Management}{2021}{2021}
+
+\vspace{6pt}
+\header{Experience}
+\jobItem{Example Fintech}{Remote}{2022}{}{Software Quality Engineer (SDET)}{Front-end and API test automation for a payments platform. Designed Playwright and pytest suites, integrated them in Jenkins, and tracked quality metrics in TestRail.}
+\jobItem{Acme Analytics}{Santiago, Chile}{2020}{2022}{QA Automation Analyst}{Migrated manual tests to Selenium and Cucumber for reporting systems. API integration testing with Postman and SQL.}
+\jobItem{Example Academy}{Online}{2021}{2023}{Test Automation Instructor (Python)}{Instructional design and teaching for the Python automation course. Hands-on material for teams adopting shift-left testing.}
+\jobItem{Globex Software}{Santiago, Chile}{2017}{2020}{Backend Developer}{Built REST services in Python and Java. Unit testing, code review, and production support.}
+
+\vspace{6pt}
+\header{Certifications}
+\courseItem{Test Automation with Python}{Example Academy}{2023}
+\courseItem{ISTQB Foundation Level}{Example Testing Board}{2021}
+\courseItem{DevOps and CI/CD Fundamentals}{Example Online}{2022}
+
+\vspace{6pt}
+\header{Languages}
+Spanish $\cdot$ \textit{Native} \
+English $\cdot$ \textit{Advanced (C1)} \
+
+\vspace{6pt}
+\header{Skills}
+\begin{tabular}{ l l }
+    Languages:       & Python, Java, SQL, Bash \\
+    Test Automation:       & Playwright, Selenium, Cypress, pytest, Cucumber \\
+    CI/CD and Tooling:       & Jenkins, Git, Docker, Jira, TestRail, Postman \\
+    Data:       & Pandas, SQL, Power BI \\
+\end{tabular}
+
+\vspace{6pt}
+\header{References}
+\referenceItem{Grace Example}{Engineering Manager, Example Fintech (Supervisor 2022–present)}{Engineering Manager, Example Fintech (Supervisor 2022–present)}{grace@example.com}
+\referenceItem{Alan Example}{Professor, Example University (Academic Supervisor 2018–2020)}{Professor, Example University (Academic Supervisor 2018–2020)}{alan@example.com}
+
+\vspace{6pt}
+\header{Publications}
+\nocite{*}
+\printbibliography[heading=none]
+
+\end{document}

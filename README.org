@@ -50,6 +50,26 @@ cv-generator --tags academic,teaching,chemistry --out build/cv-academic.tex --pd
 cv-generator --tags qa,it --lang en --out build/cv-qa-en.tex --public --pdf
 #+end_src
 
+* Examples
+
+The [[file:examples/][examples/]] directory contains a complete fictitious CV that
+exercises every supported section: translations, tags, skills, references,
+publications, and confidential documents.
+
++ [[file:examples/cv.example.yml][cv.example.yml]] — annotated YAML source
++ [[file:examples/refs.bib][refs.bib]] — demo bibliography
++ [[file:examples/output/cv-example-es.pdf][Spanish PDF]] · [[file:examples/output/cv-example-es.tex][Spanish LaTeX]]
++ [[file:examples/output/cv-example-en.pdf][English PDF]] · [[file:examples/output/cv-example-en.tex][English LaTeX]]
+
+Regenerate both outputs with:
+
+#+begin_src shell
+make examples
+#+end_src
+
+The English build also uses ~--public~, so confidential documents are excluded
+from the generated data.
+
 * Options
 
 | Flag               | Default              | Description                                      |
