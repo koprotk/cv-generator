@@ -1,0 +1,89 @@
+# Example CV data for trying out cv-generator.
+# Copy this file to your private content repository and replace the values.
+personal:
+  name: "Ada Example"
+  email: "ada@example.com"
+  phone: "+00 000 0000"
+  github: "ada"
+  linkedin: "ada"
+  orcid: "0000-0002-1825-0097"
+  summary_es: "Ejemplo de perfil profesional en español."
+  summary_en: "Example professional profile in English."
+
+education:
+  - id: e1
+    title: "MSc in Examples"
+    title_en: "MSc in Examples (EN)"
+    institution: "Example University"
+    location: "Remote"
+    location_en: "Remote"
+    start: 2020
+    end: 2022
+    tags: [academic]
+
+  - id: e2
+    title: "QA Automation Program"
+    institution: "Example Academy"
+    location: "Online"
+    start: 2021
+    end: 2022
+    tags: [qa]
+
+experience:
+  - id: x1
+    role: "Quality Engineer"
+    org: "Example Corp"
+    location: "Remote"
+    start: 2022
+    end:
+    desc: "Automated front-end and API tests."
+    desc_en: "Automated front-end and API tests."
+    tags: [qa, automation]
+
+  - id: x2
+    role: "Lecturer"
+    role_en: "Lecturer (EN)"
+    org: "Example University"
+    location: "Santiago"
+    start: 2023
+    end:
+    desc: "Taught introductory programming."
+    desc_en: "Taught introductory programming."
+    tags: [academic, teaching]
+
+courses:
+  - title: "ISTQB Foundation"
+    org: "Example Institute"
+    year: 2021
+    tags: [qa]
+
+languages:
+  - name: "Spanish"
+    name_en: "Spanish"
+    level: "Native"
+    level_en: "Native"
+
+skills:
+  - category: "Programming"
+    category_en: "Programming"
+    items: [Python, Bash, SQL]
+    tags: [qa, it]
+
+references:
+  - name: "Grace Example"
+    relation: "Engineering Manager"
+    relation_en: "Engineering Manager"
+    email: "grace@example.com"
+
+publications:
+  - bibfile: "examples/refs.bib"
+
+documents:
+  - id: doc1
+    title: "Confidential example"
+    url: "https://example.com/private"
+    confidential: true
+    tags: [academic, confidential]
+
+config:
+  bibpath: "examples/refs.bib"

@@ -1,0 +1,103 @@
+% harvardresumestyle.sty
+\ProvidesPackage{harvardresumestyle}[2025/07/18 Custom CV Styles]
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+	\stepcounter{nextitemizecount}%
+	\setcounter{countitems}{0}%
+	\preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+	\edef\@currentlabel{\number\c@countitems}%
+	\label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+	\getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+	\getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother
+\newenvironment{AutoMultiColItemize}{%
+	\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+			\setupcountitems\begin{itemize}}%
+				{\end{itemize}%
+			\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+\def\bull{\vrule height 0.7ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,
+	urlcolor=black,
+}
+
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\educationItem}[5]{%
+	\textbf{#1}\hfill #2\\
+	#3 \hfill #4 - #5\\
+	\vspace{0.5mm}%
+}
+
+\newcommand{\jobItem}[6]{%
+{\textbf{#1}}\hfill #2\\
+{\textit{#5}}\hfill #3 - #4\\
+\vspace{-2mm}
+\begin{itemize}
+	\item #6
+\end{itemize}
+\vspace{-1.5mm}
+}
+
+\newcommand{\dobleJobItem}[7]{
+{\textbf{#1}}\hfill #2\\
+{\textit{#5}}\hfill #3 - #4\\
+\vspace{-2mm}
+\begin{itemize}
+	\item #6
+		\vspace{-2mm}
+	\item #7
+\end{itemize}
+\vspace{-1.5mm}
+
+}
+
+\newcommand{\lineunder} {
+	\vspace*{-8pt} \\
+	\hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header} [1] {
+	{\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+	\vspace*{-6pt} \lineunder
+	\vspace{0.5mm}
+}
+
+\newcommand{\referenceItem}[4]{
+	\textbf{#1} $\cdot$ \textit{#2}
+	\vspace{-2mm}
+	\begin{itemize}
+		\item[\faExchange*] #3
+		      \vspace{-2mm}
+		\item[\faEnvelope] \href{mailto:#4}{#4}
+	\end{itemize}
+}
+
+\newcommand{\contactInfo}[6]{
+	\vspace*{-50pt}
+	\begin{center}
+		{\Huge \scshape {#1}}\\
+		\vspace{1mm}
+		\textbf{Email:} \href{mailto:#2}{#2} $\cdot$ \textbf{Phone:} #3 $\cdot$ \textbf{GitHub:} \href{https://github.com/#4}{#4} $\cdot$ \textbf{LinkedIn:} \href{https://www.linkedin.com/in/#5}{#5} $\cdot$ \textbf{ORCID:} \href{https://orcid.org/0000-000#6}{0000-000#6}
+		\\
+	\end{center}
+}
+
+\newcommand{\courseItem}[3]{
+	#1 $\cdot$ \textit{#2}\hfill #3\\
+}

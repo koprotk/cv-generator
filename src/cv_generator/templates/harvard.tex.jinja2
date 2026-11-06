@@ -1,0 +1,74 @@
+% Jinja2 template for the Harvard-style CV
+\documentclass[a4paper]{article}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\textheight=5in
+\pagestyle{empty}
+\raggedright
+\usepackage[left=0.4in,right=0.4in,bottom=0.3in,top=0.5in]{geometry}
+\usepackage{etoolbox,refcount}
+\usepackage{multicol}
+\usepackage[backend=biber]{biblatex}
+\usepackage{fontawesome5}
+\addbibresource{<< config.bibpath >>}
+
+\usepackage{harvardresumestyle}
+
+\begin{document}
+\contactInfo{<< personal.name >>}{<< personal.email >>}{<< personal.phone >>}{<< personal.github >>}{<< personal.linkedin >>}{<< personal.orcid >>}
+
+{% if personal.summary %}\header{<< headers.summary >>}
+<< personal.summary >>
+
+\vspace{6pt}
+{% endif %}
+\header{<< headers.education >>}
+{% for e in education %}
+\educationItem{<< e.institution >>}{<< e.location | default('') >>}{<< e.title >>}{<< e.start >>}{<< e.end | default('', true) >>}
+{% endfor %}
+
+\vspace{6pt}
+\header{<< headers.experience >>}
+{% for x in experience %}
+\jobItem{<< x.org >>}{<< x.location | default('') >>}{<< x.start >>}{<< x.end | default('', true) >>}{<< x.role >>}{<< x.desc >>}
+{% endfor %}
+
+\vspace{6pt}
+\header{<< headers.courses >>}
+{% for c in courses %}
+\courseItem{<< c.title >>}{<< c.org | default('') >>}{<< c.year | default('') >>}
+{% endfor %}
+
+\vspace{6pt}
+\header{<< headers.languages >>}
+{% for lang in languages %}
+<< lang.name >> $\cdot$ \textit{<< lang.level >>} \
+{% endfor %}
+
+\vspace{6pt}
+\header{<< headers.skills >>}
+\begin{tabular}{ l l }
+{% for s in skills %}
+    << s.category >>:       & << s['items'] | join(', ') >> \\
+{% endfor %}
+\end{tabular}
+
+\vspace{6pt}
+{% if show_references %}\header{<< headers.references >>}
+{% for r in references %}
+\referenceItem{<< r.name >>}{<< r.relation >>}{<< r.relation >>}{<< r.email >>}
+{% endfor %}
+{% endif %}
+
+{% if show_publications %}\vspace{6pt}
+\header{<< headers.publications >>}
+\nocite{*}
+\printbibliography[heading=none]
+{% endif %}
+
+\end{document}

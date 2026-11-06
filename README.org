@@ -1,0 +1,126 @@
+#+TITLE: cv-generator
+
+Generate a Harvard-style CV as LaTeX/PDF from a single YAML file.
+
+This repository contains only the generator. The CV content (personal data,
+bibliography, photo, confidential documents) belongs in a separate private
+repository. See the [[https://github.com/koprotk/myCV][myCV]] content repository for an example layout.
+
+* Requirements
+
++ Python 3.11+
++ ~pdflatex~ and ~biber~ (only when using ~--pdf~)
++ A LaTeX installation with ~fontawesome5~, ~biblatex~, ~etoolbox~,
+  ~refcount~, and ~multicol~
+
+* Install
+
+From GitHub:
+
+#+begin_src shell
+uv tool install --force "cv-generator @ git+https://github.com/koprotk/cv-generator.git@main"
+#+end_src
+
+Or install a local checkout in editable mode:
+
+#+begin_src shell
+uv tool install --force --editable ~/Projects/personal/cv-generator
+#+end_src
+
+If ~cv-generator~ is not found after installing, add uv's executable directory
+to your ~PATH~:
+
+#+begin_src shell
+uv tool update-shell
+exec zsh
+#+end_src
+
+* Usage
+
+Run the command from the root of the content repository:
+
+#+begin_src shell
+cv-generator --data data/cv.yml --out build/cv.tex --pdf
+#+end_src
+
+Role-specific variants:
+
+#+begin_src shell
+cv-generator --tags academic,teaching,chemistry --out build/cv-academic.tex --pdf
+cv-generator --tags qa,it --lang en --out build/cv-qa-en.tex --public --pdf
+#+end_src
+
+* Options
+
+| Flag               | Default              | Description                                      |
+|--------------------+----------------------+--------------------------------------------------|
+| ~--data~           | ~data/cv.yml~        | CV YAML file, relative to ~--content-dir~        |
+| ~--content-dir~    | ~.~                  | Root for relative data/asset/bib paths           |
+| ~--out~            | ~build/cv.tex~       | Output ~.tex~ path, relative to the current dir  |
+| ~--tags~           | ~""~                 | Comma-separated tags (qa, it, academic, data…)   |
+| ~--lang~           | ~es~                 | ~es~ (Spanish) or ~en~ (English)                 |
+| ~--public~         | off                  | Omit entries marked confidential                 |
+| ~--no-references~  | off                  | Omit the references section                      |
+| ~--no-publications~| off                  | Omit the publications section                    |
+| ~--bibkeys~        | ~""~                 | Filter bibliography to specific keys             |
+| ~--pdf~            | off                  | Compile with pdflatex → biber → pdflatex ×2      |
+| ~--templates~      | bundled              | Override the template directory                  |
+| ~--styles~         | bundled              | Override the LaTeX style directory               |
+
+If no tags are given, all entries are included. Items without tags are treated
+as universal (always shown regardless of filter).
+
+* Content layout
+
+The generator expects a YAML file with these top-level keys:
+
+#+begin_src yaml
+personal:
+  name: "Ada Example"
+  email: "ada@example.com"
+  phone: "+00 000 0000"
+  github: "ada"
+  linkedin: "ada"
+  orcid: "0000-0000-0000-0000"
+  summary_es: "Resumen en español."
+  summary_en: "Summary in English."
+
+education: []
+experience: []
+courses: []
+languages: []
+skills: []
+references: []
+publications:
+  - bibfile: "biblio/cv_ref.bib"
+
+documents:
+  - title: "Confidential document"
+    url: "https://example.com/..."
+    confidential: true
+    tags: [academic, confidential]
+
+config:
+  bibpath: "biblio/cv_ref.bib"
+#+end_src
+
+Assets such as ~biblio/~ and ~img/~ are resolved relative to ~--content-dir~.
+
+* Development
+
+#+begin_src shell
+uv sync
+uv run cv-generator --data examples/cv.example.yml --out build/example.tex --pdf
+uv run pytest
+#+end_src
+
+* Template and style provenance
+
+The LaTeX template and ~harvardresumestyle.sty~ are generic CV layout files.
+Review their origin and licensing before redistributing them. The generator
+code is maintained in this repository.
+
+* Related repositories
+
++ [[https://github.com/koprotk/myCV][myCV]] — private CV content (data, bibliography, photo)
++ [[https://github.com/koprotk/org-blogger][org-blogger]] — blog publishing tool following the same split
