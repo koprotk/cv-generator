@@ -114,11 +114,13 @@ uv run cv-generator --data examples/cv.example.yml --out build/example.tex --pdf
 uv run pytest
 #+end_src
 
-* Template and style provenance
+* License
 
-The LaTeX template and ~harvardresumestyle.sty~ are generic CV layout files.
-Review their origin and licensing before redistributing them. The generator
-code is maintained in this repository.
+This project is released under the [[file:LICENSE][MIT License]].
+
+The LaTeX template and ~harvardresumestyle.sty~ are generic CV layout files
+that shipped with the original single-repository layout. Review their origin
+before redistributing them under a different license.
 
 * Related repositories
 
